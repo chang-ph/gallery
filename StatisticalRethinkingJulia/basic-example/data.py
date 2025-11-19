@@ -5,6 +5,7 @@
 #   "numpy",
 #   "bokeh",
 #   "requests",
+#   "ruamel-yaml",
 # ]
 # ///
 
