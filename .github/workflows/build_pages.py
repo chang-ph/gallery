@@ -29,7 +29,6 @@ for file in (project_root / "MCMC").rglob("*"):
         continue
     rel_file = file.relative_to(project_root)
     os.makedirs(output_dir / rel_file.parent, exist_ok=True)
-    print(file, rel_file)
     with zipfile.ZipFile(str(output_dir / (str(rel_file) + ".zip")), "w", zipfile.ZIP_DEFLATED) as zipf:
         zipf.write(file, rel_file)
 
