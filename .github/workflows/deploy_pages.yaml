@@ -1,0 +1,28 @@
+name: build pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    steps:
+      - name: Check out the project
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Build static files
+        id: build
+        run: |
+          python .github/workflows/build_pages.py
+        env:
+          PAGES_ROOT_URL: https://${{ github.event.repository.owner.login }}.github.io/${{ github.event.repository.name }}
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build_outputs_folder
