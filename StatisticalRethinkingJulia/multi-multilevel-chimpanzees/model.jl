@@ -36,7 +36,7 @@ flow = Coinfer.current_workflow()
 
     logitp = α .+ α_actor[actor] + α_block[block] .+ (βp .+ βpC * condition) .* prosoc_left
 
-    pulled_left .~ BinomialLogit.(1, logitp)
+    pulled_left ~ product_distribution(BinomialLogit.(1, logitp))
 end;
 
 flow.model = m12_5

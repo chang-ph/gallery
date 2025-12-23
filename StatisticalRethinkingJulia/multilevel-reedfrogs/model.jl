@@ -21,7 +21,7 @@ flow = Coinfer.current_workflow()
     α_tank ~ filldist(Normal(α, σ), N_tank)
 
     logitp = α_tank[tank]
-    surv .~ BinomialLogit.(density, logitp)
+    surv ~ product_distribution(BinomialLogit.(density, logitp))
 end;
 
 flow.model = m12_2

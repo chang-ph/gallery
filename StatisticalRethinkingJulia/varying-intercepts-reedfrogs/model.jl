@@ -18,7 +18,7 @@ flow = Coinfer.current_workflow()
 @model function reedfrogs(Nᵢ, i, Sᵢ)
     αₜₐₙₖ ~ filldist(Normal(0, 1.5), length(i))
     pᵢ = logistic.(αₜₐₙₖ[i])
-    Sᵢ .~ Binomial.(Nᵢ, pᵢ)
+    Sᵢ ~ product_distribution(Binomial.(Nᵢ, pᵢ))
 end;
 
 flow.model = reedfrogs

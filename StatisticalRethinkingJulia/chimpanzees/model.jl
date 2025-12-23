@@ -20,7 +20,7 @@ flow = Coinfer.current_workflow()
     βpC ~ Normal(0, 10)
 
     logits = α .+ (βp .+ βpC * x₁) .* x₂
-    y .~ BinomialLogit.(1, logits)
+    y ~ product_distribution(BinomialLogit.(1, logits))
 end
 
 flow.model = m10_3

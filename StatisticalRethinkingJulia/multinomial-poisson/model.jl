@@ -21,7 +21,7 @@ flow = Coinfer.current_workflow()
 
     logit_p = a_dept[dept_id] + bm*male
 
-    admit .~ BinomialLogit.(applications, logit_p)
+    admit ~ product_distribution(BinomialLogit.(applications, logit_p))
 end
 
 flow.model = m13_2

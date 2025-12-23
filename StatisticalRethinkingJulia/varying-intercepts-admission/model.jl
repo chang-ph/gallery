@@ -32,7 +32,7 @@ flow = Coinfer.current_workflow()
     a_dept, bm_dept = a_bm_dept[1, :], a_bm_dept[2, :]
     logit_p = a_dept[dept_id] + bm_dept[dept_id] .* male
 
-    admit .~ BinomialLogit.(applications, logit_p)
+    admit ~ product_distribution(BinomialLogit.(applications, logit_p))
 end;
 
 flow.model = m13_3

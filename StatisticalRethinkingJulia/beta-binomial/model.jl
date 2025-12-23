@@ -26,7 +26,7 @@ flow = Coinfer.current_workflow()
     prob = logistic(α)
     alpha = prob * θ
     beta = (1 - prob) * θ
-    admit .~ BetaBinomial.(applications, alpha, beta)
+    admit ~ product_distribution(BetaBinomial.(applications, alpha, beta))
 end
 
 flow.model = m11_5

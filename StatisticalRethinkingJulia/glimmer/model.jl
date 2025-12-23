@@ -16,7 +16,7 @@ flow = Coinfer.current_workflow()
 
     logits = α .+ β * x
 
-    y .~ BinomialLogit.(1, logits)
+    y ~ product_distribution(BinomialLogit.(1, logits))
 end;
 
 flow.model = m_good_stan

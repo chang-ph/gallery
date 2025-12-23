@@ -20,7 +20,7 @@ flow = Coinfer.current_workflow()
     α_pond ~ filldist(Normal(α, σ), N_ponds)
 
     logitp = α_pond[pond]
-    s .~ BinomialLogit.(ni, logitp)
+    s ~ product_distribution(BinomialLogit.(ni, logitp))
 end;
 
 flow.model = m12_3
