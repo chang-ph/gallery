@@ -1,0 +1,21 @@
+# /// script
+# dependencies = [
+#   "pandas",
+#   "numpy",
+#   "bokeh",
+#   "requests",
+#   "ruamel-yaml",
+# ]
+# ///
+
+import pandas as pd
+import numpy as np
+from io import StringIO
+from Coinfer import current_workflow
+
+def interpret_data(data):
+    y = np.random.normal(0, 1, 100)
+    return [y.tolist()]
+
+flow = current_workflow()
+flow.parse_data(interpret_data)

@@ -1,0 +1,23 @@
+coinfer:
+  experiment_name: {model_name}
+serverless:
+  engine: fargate    # fargate/lambda
+  env_cache: s3://julia-instantiate-cache
+  parallel: 1
+
+sampling:
+  parallel_algorithm: AbstractMCMC.MCMCSerial()    # AbstractMCMC.MCMCThreads() or AbstractMCMC.MCMCDistributed()
+  iteration_count: 1000
+  num_chains: 1
+  mcmc_data:
+    directory: mcmcdata/
+  ppl: turing
+  # arguments to Julia executable:
+  #   If you use MCMCThreads, you need to add the correct `-t x` where x is the number of threads.
+  #   If you use MCMCDistributed, you need to add the correct `-p x` where x is the number of processes.
+  julia_args: []
+  sync: off
+
+analysis:
+  output_dir: ./analyzer_output/
+  sync: off

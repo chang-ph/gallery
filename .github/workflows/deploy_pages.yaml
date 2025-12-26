@@ -3,6 +3,8 @@ name: build pages
 on:
   push:
     branches: [main]
+env:
+  BUILD_OUTPUT_FOLDER: build_outputs_folder
 
 jobs:
   build:
@@ -16,13 +18,23 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
+      - name: Check out the project
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: ${{ env.BUILD_OUTPUT_FOLDER }}
+        continue-on-error: true
       - name: Build static files
         id: build
         run: |
+          python -m pip install tomlkit namesgenerator
           python .github/workflows/build_pages.py
         env:
           PAGES_ROOT_URL: https://${{ github.event.repository.owner.login }}.github.io/${{ github.event.repository.name }}
+          BRANCH: ${{ github.ref_name }}
+          BUILD_OUTPUT_FOLDER: ${{ env.BUILD_OUTPUT_FOLDER }}
+          COMMIT_SHA: ${{ github.sha }}
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build_outputs_folder
+          folder: ${{ env.BUILD_OUTPUT_FOLDER }}
