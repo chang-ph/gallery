@@ -1,0 +1,201 @@
+{
+  "models": {
+    "StatisticalRethinking": [
+      {
+        "name": "wild-chain",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/wild-chain.zip"
+      },
+      {
+        "name": "glimmer",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/glimmer.zip"
+      },
+      {
+        "name": "oceanic-tool-complexity",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/oceanic-tool-complexity.zip"
+      },
+      {
+        "name": "varying-intercepts-admission",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/varying-intercepts-admission.zip"
+      },
+      {
+        "name": "chimpanzees",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/chimpanzees.zip"
+      },
+      {
+        "name": "basic-example",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/basic-example.zip"
+      },
+      {
+        "name": "multi-multilevel-chimpanzees",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/multi-multilevel-chimpanzees.zip"
+      },
+      {
+        "name": "centered-oceanic-tool-complexity",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/centered-oceanic-tool-complexity.zip"
+      },
+      {
+        "name": "weakly-informative-priors",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/weakly-informative-priors.zip"
+      },
+      {
+        "name": "non-identifiable",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/non-identifiable.zip"
+      },
+      {
+        "name": "globe-tossing",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/globe-tossing.zip"
+      },
+      {
+        "name": "height",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/height.zip"
+      },
+      {
+        "name": "africa",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/africa.zip"
+      },
+      {
+        "name": "ignoring-gender-admit",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/ignoring-gender-admit.zip"
+      },
+      {
+        "name": "varying-intercepts-reedfrogs",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/varying-intercepts-reedfrogs.zip"
+      },
+      {
+        "name": "africa-first-candidate",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/africa-first-candidate.zip"
+      },
+      {
+        "name": "varying-intercepts-chimpanzees",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/varying-intercepts-chimpanzees.zip"
+      },
+      {
+        "name": "over-dispersed-oceanic",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/over-dispersed-oceanic.zip"
+      },
+      {
+        "name": "beta-binomial",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/beta-binomial.zip"
+      },
+      {
+        "name": "estimate-handedness-chimpanzees",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/estimate-handedness-chimpanzees.zip"
+      },
+      {
+        "name": "multinomial-poisson",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/multinomial-poisson.zip"
+      },
+      {
+        "name": "varying-slopes-cafe",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/varying-slopes-cafe.zip"
+      },
+      {
+        "name": "multilevel-reedfrogs",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/multilevel-reedfrogs.zip"
+      },
+      {
+        "name": "partial-pooling-estimates",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/partial-pooling-estimates.zip"
+      },
+      {
+        "name": "admit-reject",
+        "url": "https://chang-ph.github.io/gallery/gallery/statistical_rethinking/admit-reject.zip"
+      }
+    ],
+    "JuliaBUGS": [
+      {
+        "name": "RATS",
+        "url": "https://chang-ph.github.io/gallery/gallery/juliabugs/RATS.zip"
+      }
+    ]
+  },
+  "MCMC": {
+    "Arviz": [
+      {
+        "name": "regression1d",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/regression1d.nc.zip"
+        ]
+      },
+      {
+        "name": "centered_eight",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/centered_eight.nc.zip"
+        ]
+      },
+      {
+        "name": "non_centered_eight",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/non_centered_eight.nc.zip"
+        ]
+      },
+      {
+        "name": "rugby_field",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/rugby_field.nc.zip"
+        ]
+      },
+      {
+        "name": "classification1d",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/classification1d.nc.zip"
+        ]
+      },
+      {
+        "name": "rugby",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/rugby.nc.zip"
+        ]
+      },
+      {
+        "name": "regression10d",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/regression10d.nc.zip"
+        ]
+      },
+      {
+        "name": "classification10d",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/classification10d.nc.zip"
+        ]
+      },
+      {
+        "name": "glycan_torsion_angles",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/glycan_torsion_angles.nc.zip"
+        ]
+      },
+      {
+        "name": "radon_hierarchical",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Arviz/radon_hierarchical.nc.zip"
+        ]
+      }
+    ],
+    "Stan": [
+      {
+        "name": "finite-mixture",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_4.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_8.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_9.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_3.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_5.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_6.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_7.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_1.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_2.csv.zip",
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Stan/finite-mixture-20250806105328_10.csv.zip"
+        ]
+      }
+    ],
+    "Turing": [
+      {
+        "name": "demo",
+        "url": [
+          "https://chang-ph.github.io/gallery/gallery/mcmc/Turing/demo_chain.csv.zip"
+        ]
+      }
+    ]
+  }
+}
