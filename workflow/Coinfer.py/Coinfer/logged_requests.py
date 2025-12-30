@@ -105,6 +105,10 @@ class Req:
                 return None
             else:
                 raise
+        except Exception:
+            self.errmsg = f"[{self.reqid}](http)request exception: {args[0]}, {time.time() - start}"
+            logger.exception("%s", self.errmsg)
+            return None
         rsp, err = check_response(rsp, subjects, valid_status_code)
         if err:
             self.errmsg = f"[{self.reqid}]{err}"

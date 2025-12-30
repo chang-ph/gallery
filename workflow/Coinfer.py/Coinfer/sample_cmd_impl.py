@@ -12,7 +12,7 @@ from typing import Any, Callable
 
 import yaml
 
-from .client import Client, RunInfoData
+from .client import ChainIterMap, ChainVarData, Client, RunInfoData
 from .client_common import NEED_LOGIN_PROMPT, bool_sync, gen_batch_id, get_token
 
 INTERVAL = int(os.environ.get("COINFER_DATA_SENDING_INTERVAL", "3"))
@@ -280,7 +280,12 @@ class ModelRunHandler:
         return status
 
     @staticmethod
-    def _merge_full_data(log_data, full_log_data, chain_iter_map, full_chain_iter_map):
+    def _merge_full_data(
+        log_data: ChainVarData,
+        full_log_data: ChainVarData,
+        chain_iter_map: ChainIterMap,
+        full_chain_iter_map: ChainIterMap,
+    ):
         for chain_name, chain_data in log_data.items():
             for var_name, var_data in chain_data.items():
                 full_log_data.setdefault(chain_name, {}).setdefault(var_name, []).extend(var_data)
@@ -305,8 +310,8 @@ class ModelRunHandler:
 
         logger.debug("%s %s", mcmc_data_path.exists(), sampling_finished_evt.is_set())
         # chain_name <--> (var_name <--> [values])
-        log_data: dict[str, dict[str, list[Any]]] = {}
-        full_log_data: dict[str, dict[str, list[Any]]] = {}
+        log_data: ChainVarData = {}
+        full_log_data: ChainVarData = {}
 
         # Handled file format:
         # file <--> [file_size, last_handled_line_number]
@@ -319,8 +324,8 @@ class ModelRunHandler:
 
         var_converter_map: dict[str, Callable[[str], Any]] = {}
 
-        chain_iter_map: dict[str, tuple[int, int]] = {}
-        full_chain_iter_map: dict[str, tuple[int, int]] = {}
+        chain_iter_map: ChainIterMap = {}
+        full_chain_iter_map: ChainIterMap = {}
 
         while True:
             if sampling_finished_evt.is_set():
@@ -367,7 +372,9 @@ class ModelRunHandler:
                         elif iteration_number == current_iteration:
                             pass
                         else:
-                            raise RuntimeError(f"iteration_number {iteration_number} is smaller than current_iteration {current_iteration}")
+                            raise RuntimeError(
+                                f"iteration_number {iteration_number} is smaller than current_iteration {current_iteration}"
+                            )
 
                     current_iteration = iteration_number
                     if var_name in var_converter_map:

@@ -2,6 +2,8 @@ import base64
 import gzip
 import json
 import logging
+import os
+import urllib.parse
 from pathlib import Path
 from typing import Any, Required, TypedDict
 
@@ -21,9 +23,15 @@ class RunInfoData(TypedDict, total=False):
     status: str
 
 
+# chain-name <==> {chain-name <==> [chain-values, ...]}
+ChainVarData = dict[str, dict[str, list[Any]]]
+# chain-name <==> (min-iter, max-iter)
+ChainIterMap = dict[str, tuple[int, int]]
+
+
 class LogDataDict(TypedDict):
-    vars: dict[str, dict[str, list[Any]]]
-    iteration: dict[str, tuple[int, int]]
+    vars: ChainVarData
+    iteration: ChainIterMap
 
 
 class Client:
@@ -217,7 +225,8 @@ class Client:
                 "run_id": run_id,
             }
         }
-        logger.debug("send mcmc data")
+        for chain_name, chain_data in log_data['vars'].items():
+            logger.info("send mcmc data: %s, %s", chain_name, len(chain_data.keys()))
         resp = self.session.post(url, headers=headers, data=json.dumps(body, allow_nan=True))
         self.response_data(resp)
 
@@ -273,8 +282,17 @@ class Client:
         wf_data["experiment_name"] = experiment_name
         return exp_rsp, wf_data
 
+    def config_url(self):
+        gh_owner = os.getenv("COINFER_GH_OWNER", "vectorly-ai")
+        url_parts = urllib.parse.urlparse(self.endpoints)
+        if not url_parts.hostname:
+            raise RuntimeError(f"Invalid endpoints: {self.endpoints}")
+
+        config_file_name = url_parts.hostname.replace('.', '-')
+        return f'https://{gh_owner}.github.io/config/{config_file_name}.json'
+
     def call_after_sample_lambda(self, exp_id: str, batch_id: str, run_id: str):
-        url = self.endpoint("sys", "/config")
+        url = self.config_url()
         rsp = self.session.get(url)
         if self.session.errmsg:
             logger.error("Failed to get lambda url: %s", self.session.errmsg)
