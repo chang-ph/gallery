@@ -361,8 +361,13 @@ class ModelRunHandler:
                     var_name = row[1]
                     iteration_number = int(row[2])
                     # the current implementation relies on the fact that the MCMC data is sorted by iteration_number
-                    if current_iteration is not None and iteration_number > current_iteration:
-                        self._merge_full_data(log_data, full_log_data, chain_iter_map, full_chain_iter_map)
+                    if current_iteration is not None:
+                        if iteration_number > current_iteration:
+                            self._merge_full_data(log_data, full_log_data, chain_iter_map, full_chain_iter_map)
+                        elif iteration_number == current_iteration:
+                            pass
+                        else:
+                            raise RuntimeError(f"iteration_number {iteration_number} is smaller than current_iteration {current_iteration}")
 
                     current_iteration = iteration_number
                     if var_name in var_converter_map:
