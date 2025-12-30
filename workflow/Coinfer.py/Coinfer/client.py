@@ -283,22 +283,27 @@ class Client:
         return exp_rsp, wf_data
 
     def config_url(self):
-        gh_owner = os.getenv("COINFER_GH_OWNER", "vectorly-ai")
+        config_url = os.getenv("CONFIG_URL")
+        if config_url:
+            return config_url
+
         url_parts = urllib.parse.urlparse(self.endpoints)
         if not url_parts.hostname:
             raise RuntimeError(f"Invalid endpoints: {self.endpoints}")
 
         config_file_name = url_parts.hostname.replace('.', '-')
-        return f'https://{gh_owner}.github.io/config/{config_file_name}.json'
+        return f'https://coinfer.ai/config/{config_file_name}.json'
 
     def call_after_sample_lambda(self, exp_id: str, batch_id: str, run_id: str):
         url = self.config_url()
+        logger.info('get lambda url from: %s', url)
         rsp = self.session.get(url)
         if self.session.errmsg:
             logger.error("Failed to get lambda url: %s", self.session.errmsg)
             return
         assert rsp
         url = rsp.json()["data"]["run_model_url"]
+        logger.info('lambda url: %s', url)
 
         self.session.post(
             url,
