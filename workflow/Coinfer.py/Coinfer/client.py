@@ -302,7 +302,7 @@ class Client:
             logger.error("Failed to get lambda url: %s", self.session.errmsg)
             return
         assert rsp
-        url = rsp.json()["data"]["run_model_url"]
+        url = rsp.json()["run_model_url"]
         logger.info('lambda url: %s', url)
 
         self.session.post(
