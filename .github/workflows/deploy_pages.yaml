@@ -1,8 +1,6 @@
 name: build pages
 
-on:
-  push:
-    branches: [main]
+on: [push]
 env:
   BUILD_OUTPUT_FOLDER: build_outputs_folder
 
